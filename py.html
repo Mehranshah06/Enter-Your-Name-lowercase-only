@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Capitalize Name</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    input, button { padding: 8px; margin: 5px; }
+    #result { margin-top: 15px; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <h3>Enter Your Name (lowercase only)</h3>
+  <input type="text" id="nameInput" placeholder="e.g. ali">
+  <button onclick="showName()">Display</button>
+  <div id="result"></div>
+
+<script>
+function showName() {
+  let name = document.getElementById('nameInput').value.trim();
+  let resultDiv = document.getElementById('result');
+
+  // Check if empty
+  if (name === "") {
+    resultDiv.innerHTML = "Please enter your name!";
+    return;
+  }
+
+  // Check lowercase only validation
+  if (name !== name.toLowerCase()) {
+    resultDiv.innerHTML = "Error: Please enter name in lowercase only!";
+    return;
+  }
+
+  // Capitalize first letter
+  let capitalizedName = name.charAt(0).toUpperCase() + name.slice(1);
+
+  resultDiv.innerHTML = "Your Name is: " + capitalizedName;
+}
+</script>
+
+</body>
+</html>
